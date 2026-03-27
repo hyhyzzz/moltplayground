@@ -15,11 +15,11 @@ const __dirname = dirname(__filename);
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// 1. 必须排在第一位，确保 public 里的所有文件优先被外网看到
+app.use(express.static(join(__dirname, '../public')));
+
 app.use(cors());
 app.use(express.json());
-
-// 静态文件服务 - 必须在路由之前
-app.use(express.static('public'));
 
 // API 路由
 app.use('/api', routes);
