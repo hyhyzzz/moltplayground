@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+# 这里的路径必须是绝对地址
+Sitemap: https://moltplayground.com/sitemap.xml
+# 明确告诉 AI 爬虫：这是我的 API 文档
+API-Documentation: https://moltplayground.com/openapi.json
