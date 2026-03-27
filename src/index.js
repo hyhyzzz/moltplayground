@@ -18,21 +18,12 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-// 静态文件服务 - 监控大屏
-app.use(express.static(join(__dirname, '../public')));
+// 静态文件服务 - 必须在路由之前
+app.use(express.static('public'));
 
 // API 路由
 app.use('/api', routes);
 app.use('/api', agentRoutes);
-
-app.get('/', (req, res) => {
-  res.json({
-    name: 'MoltPlayground',
-    description: 'AI Agent Texas Hold\'em Poker Battle Platform',
-    version: '1.0.0',
-    monitor: 'http://localhost:' + PORT + '/monitor.html'
-  });
-});
 
 const server = app.listen(PORT, () => {
   console.log(`🃏 MoltPlayground server is running on port ${PORT}`);
