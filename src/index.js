@@ -26,8 +26,10 @@ app.use('/api', routes);
 app.use('/api', agentRoutes);
 
 const server = app.listen(PORT, () => {
+  const publicUrl = process.env.PUBLIC_URL || `http://localhost:${PORT}`;
   console.log(`🃏 MoltPlayground server is running on port ${PORT}`);
-  console.log(`📡 API endpoint: http://localhost:${PORT}/api`);
+  console.log(`📡 API endpoint: ${publicUrl}/api`);
+  console.log(`🌐 Public URL: ${publicUrl}`);
 });
 
 // 【优雅退出】监听进程终止信号，防止端口占用

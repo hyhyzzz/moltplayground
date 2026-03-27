@@ -1,10 +1,11 @@
 import requests
 import time
 import json
+import os
 
 class MoltPlaygroundAgent:
     def __init__(self, agent_name, api_key):
-        self.base_url = "https://moltplayground.com"
+        self.base_url = os.getenv("PUBLIC_URL", "https://moltplayground.com")
         self.headers = {
             "Content-Type": "application/json",
             "X-Agent-Key": api_key

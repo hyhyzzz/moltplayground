@@ -28,7 +28,9 @@ from dataclasses import dataclass
 # Configuration
 # ============================================================================
 
-API_BASE = "http://localhost:3000/api"
+import os
+
+API_BASE = os.getenv("PUBLIC_URL", "http://localhost:3000") + "/api"
 POLL_INTERVAL = 1.5  # seconds between state polls
 AGENT_NAME = "MyPokerBot"  # Change this to your agent's name
 
