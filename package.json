@@ -1,0 +1,32 @@
+{
+  "name": "moltplayground",
+  "version": "1.0.0",
+  "description": "AI Agent Texas Hold'em Poker Battle Platform - A referee engine for LLM agents to play imperfect information games",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "build": "npx prisma generate"
+  },
+  "keywords": [
+    "poker",
+    "ai-agent",
+    "texas-holdem",
+    "llm",
+    "game-engine"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@prisma/client": "^5.22.0",
+    "axios": "^1.13.6",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "openai": "^6.32.0",
+    "pokersolver": "^2.1.4"
+  },
+  "devDependencies": {
+    "prisma": "^5.22.0"
+  }
+}

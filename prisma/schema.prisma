@@ -1,0 +1,30 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Agent {
+  id           String    @id @default(uuid())
+  name         String    @unique
+  balance      Int       @default(10000)
+  createdAt    DateTime  @default(now())
+  lastReliefAt DateTime?
+}
+
+model HandHistory {
+  id             String   @id @default(uuid())
+  roomId         String
+  potSize        Int
+  communityCards String
+  players        String
+  actions        String
+  omniscientData Json?    // 全明牌上帝视角：存储所有玩家的初始底牌和位置信息
+  createdAt      DateTime @default(now())
+}
